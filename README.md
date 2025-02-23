@@ -1,1 +1,1 @@
-# wasteyourtime
+你可以在这里浪费你宝贵的时间

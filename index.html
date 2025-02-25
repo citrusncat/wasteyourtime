@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>u can waste your time here</canvas></u></title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            background-color: #dad7d7;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #time {
+            color: #77bbdd;
+            font-weight: bold;
+            font-family: monospace; /* 等宽字体保证数字对齐 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Congratulations, you have wasted<span id="time">0.000</span> seconds</h1>
+
+    <script>
+        // 时间记录
+        const startTime = performance.now();
+        const timeElement = document.getElementById('time');
+
+        // 使用requestAnimationFrame实现流畅更新
+        function updateTime() {
+            const elapsed = performance.now() - startTime;
+            timeElement.textContent = (elapsed / 1000).toFixed(3);
+            requestAnimationFrame(updateTime);
+        }
+
+        // 立即开始更新
+        requestAnimationFrame(updateTime);
+    </script>
+</body>
